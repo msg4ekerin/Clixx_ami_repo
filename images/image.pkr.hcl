@@ -7,7 +7,7 @@ variable "aws_instance_type" {
 }
 
 variable "ami_name" {
-  default = "ami-stack-51"
+  default = "ami-stack-new3"
 }
 
 variable "component" {
@@ -17,7 +17,6 @@ variable "component" {
 
 variable "aws_accounts" {
   type = list(string)
-  # default= ["577701061234","560089993749"]
   default= ["425280744679"]
 }
 
