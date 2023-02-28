@@ -11,14 +11,14 @@ pipeline {
 
          stage('Initial Stage') {
               steps {
-                script {
+                script {slackSend (color: '#001aff', message: "PACKER IMAGE DEPLOYMENT: ADEWALE '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                 def userInput = input(id: 'confirm', message: 'Start Pipeline?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Start Pipeline', name: 'confirm'] ])
              }
            }
         }
 
         stage('Packer AMI Build'){
-             steps {
+             steps {slackSend (color: '#001aff', message: "STARTING Packer AMI Build: ADEWALE '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                  sh '''
                  cd images
                  sed -i "s/ami-stack-'[0-9]*$'/'${AMI_ID}'/" ./image.pkr.hcl 
